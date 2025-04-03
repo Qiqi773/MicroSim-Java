@@ -1,11 +1,12 @@
 package simulator;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileReader {
+public class InstructionFileReader {
 
     public static List<InstructionLine> readInstructionFile(String filePath) {
         List<InstructionLine> instructions = new ArrayList<>();
@@ -34,6 +35,15 @@ public class FileReader {
         }
 
         return instructions;
+    }
+
+    public static void main(String[] args) {
+        List<InstructionLine> test = new ArrayList<InstructionLine>();
+
+        test = InstructionFileReader.readInstructionFile("../testfiles/TestProg_PicSim_20230413/TPicSim1.LST");
+
+        System.out.println("Address: " + test.get(0).getAddress());
+
     }
 
 }
